@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --c-spring: #F3F3E9;
+    --c-cream: #F6F6ED;
+    --c-cinnabar: #E33529;
+    --c-cinnabar-dark: #B9261C;
+    --c-cherub: #F4CED3;
+    --c-pink: #F3C3CB;
+    --c-pink-deep: #F0B5BE;
+    --c-pink-soft: #F6D2D8;
+    --c-sail: #AFD8FB;
+    --c-cerulean: #2B6786;
+    --c-cerulean-dark: #124E6D;
+    --c-sun: #FFF500;
+    --c-brown: #693413;
+    --c-ink: #1E1B18;
+    --ease-expressive: cubic-bezier(0.24, 1, 0.36, 1);
+  }
+
+  html {
+    background-color: var(--c-spring);
+    color: var(--c-ink);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--c-spring);
+    color: var(--c-ink);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F3F3E9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #E33529;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2B6786;
+  }
+}
+
+/* Lenis Smooth Scrolling */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Expressive Condensed Display Typography (Bayon) */
+.display-hero {
+  font-family: 'Bayon', Impact, sans-serif;
+  text-transform: uppercase;
+  line-height: 0.80;
+  letter-spacing: -0.02em;
+}
+
+.display-section {
+  font-family: 'Bayon', Impact, sans-serif;
+  text-transform: uppercase;
+  line-height: 0.84;
+  letter-spacing: -0.02em;
+}
+
+.display-card {
+  font-family: 'Bayon', Impact, sans-serif;
+  text-transform: uppercase;
+  line-height: 0.90;
+  letter-spacing: -0.015em;
+}
+
+/* Signature Don't Board Me Pill Button */
+.dbm-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  border-radius: 9999px;
+  font-family: 'Bayon', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  transition: transform 0.35s var(--ease-expressive), background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dbm-pill:hover {
+  transform: scale(0.96);
+}
+
+.dbm-pill:active {
+  transform: scale(0.93);
+}
+
+/* Animated Underline Hover (Contact / Links) */
+.hover-line {
+  position: relative;
+  display: inline-block;
+}
+.hover-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.45s var(--ease-expressive);
+}
+.hover-line:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Gentle Float & Spin Helpers */
+@keyframes slow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 36s linear infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
